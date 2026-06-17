@@ -1,0 +1,130 @@
+import type { Lang } from "./i18n";
+
+export type AppStatus = "live" | "soon";
+
+type L = Record<Lang, string>;
+type LList = Record<Lang, string[]>;
+
+export type AppItem = {
+  id: string;
+  /** Path under /public to the real app icon. */
+  iconImage?: string;
+  /** Emoji fallback used when no iconImage is set. */
+  icon?: string;
+  name: L;
+  tagline: L;
+  category: L;
+  /** Short blurb shown on the card. */
+  summary: L;
+  rating?: number;
+  free?: boolean;
+  status: AppStatus;
+  appStoreUrl?: string;
+  googlePlayUrl?: string;
+
+  // ── 상세 페이지(/apps/[id]) 용 ──
+  /** Phone screenshots under /public. */
+  screenshots?: string[];
+  /** Intro paragraphs (split on \n\n when rendering). */
+  overview?: L;
+  /** "이런 분께 잘 맞아요" bullet list. */
+  forWhom?: LList;
+  /** "주요 기능" bullet list. */
+  features?: LList;
+  /** Closing line. */
+  closing?: L;
+  /** Info table. */
+  developer?: string;
+  requires?: L;
+  languages?: L;
+  price?: L;
+};
+
+/**
+ * Real catalog. Add new apps here — cards render from the list, and each "live"
+ * app gets a detail page at /apps/<id> (see app/apps/[id]/page.tsx).
+ */
+export const apps: AppItem[] = [
+  {
+    id: "yeoro",
+    iconImage: "/apps/yeoro.png",
+    name: { ko: "여로", en: "Yeoro" },
+    tagline: {
+      ko: "일정·지출·환율을 한곳에",
+      en: "Itinerary, spending & exchange in one place",
+    },
+    category: { ko: "여행 기록", en: "Travel" },
+    summary: {
+      ko: "여행 일정·환율·지출·회고를 하나의 여행 안에서 이어주는 기록 앱.",
+      en: "A travel journal that threads itinerary, exchange, spending, and reflection into one trip.",
+    },
+    rating: 5.0,
+    free: true,
+    status: "live",
+    appStoreUrl:
+      "https://apps.apple.com/kr/app/%EC%97%AC%EB%A1%9C-%EC%97%AC%ED%96%89-%EA%B8%B0%EB%A1%9D/id6762110177",
+    screenshots: [
+      "/apps/yeoro/01.png",
+      "/apps/yeoro/02.png",
+      "/apps/yeoro/03.png",
+      "/apps/yeoro/04.png",
+      "/apps/yeoro/05.png",
+      "/apps/yeoro/06.png",
+    ],
+    overview: {
+      ko: "여로는 여행 일정, 환율, 지출 기록, 여행 회고를 하나의 여행 안에서 이어주는 여행 기록 앱입니다.\n\n여행을 준비할 때는 날짜별 일정을 정리하고, 여행 중에는 현지 금액을 기준 통화로 이해하며 지출을 남기고, 여행이 끝난 뒤에는 일정과 소비를 같은 흐름 안에서 다시 돌아볼 수 있습니다.\n\n여러 앱에 흩어져 있던 여행 정보를 한곳에 모아, 한 번의 여행이 어떻게 흘렀는지 차분하게 정리해보세요.",
+      en: "Yeoro is a travel journal that threads your itinerary, exchange rates, spending, and reflection into a single trip.\n\nWhile preparing, organize your plans day by day; while traveling, log spending and read local prices in your home currency; and once the trip ends, look back on the schedule and spending in one continuous flow.\n\nBring travel details scattered across many apps into one place, and calmly capture how a single journey unfolded.",
+    },
+    forWhom: {
+      ko: [
+        "일정과 지출을 여러 앱에 나눠 관리하고 싶지 않은 개인 여행자",
+        "해외여행 중 현지 금액을 빠르게 이해하고 싶은 사용자",
+        "여행 후에도 다시 열어볼 수 있는 기록을 남기고 싶은 사용자",
+      ],
+      en: [
+        "Solo travelers who don't want plans and spending split across apps",
+        "Anyone who wants to grasp local prices quickly while abroad",
+        "People who want a record they can reopen long after the trip",
+      ],
+    },
+    features: {
+      ko: [
+        "여행 생성과 여행별 관리",
+        "날짜별 일정 정리와 수정",
+        "기준 통화 설정과 환율 확인",
+        "여행 지출 기록과 예산 흐름 확인",
+        "영수증 또는 사진 첨부",
+        "여행 종료 후 일정과 지출을 함께 돌아보는 리뷰",
+      ],
+      en: [
+        "Create and manage trips one by one",
+        "Organize and edit day-by-day itineraries",
+        "Set a base currency and check exchange rates",
+        "Log spending and watch your budget flow",
+        "Attach receipts or photos",
+        "Review schedule and spending together after the trip",
+      ],
+    },
+    closing: {
+      ko: "여로는 화려한 기능보다 여행의 흐름을 놓치지 않는 기록 경험을 중요하게 생각합니다. 준비부터 기록, 회고까지 한 번의 여행을 한곳에서 이어보세요.",
+      en: "Yeoro values a recording experience that follows the flow of a journey over flashy features. From planning to logging to looking back — keep one trip together, in one place.",
+    },
+    developer: "JinBae Jung",
+    requires: { ko: "iOS 17.0 이상", en: "iOS 17.0 or later" },
+    languages: { ko: "한국어 · English", en: "Korean · English" },
+    price: { ko: "무료", en: "Free" },
+  },
+];
+
+/** Placeholder shown after the real apps to signal the studio is still building. */
+export const moreComing = {
+  title: { ko: "더 많은 앱을 준비하고 있어요", en: "More apps in the making" },
+  body: {
+    ko: "담담스튜디오의 다음 앱을 차분히 만들고 있습니다.",
+    en: "We're calmly crafting what comes next.",
+  },
+} satisfies Record<string, L>;
+
+export function getApp(id: string): AppItem | undefined {
+  return apps.find((a) => a.id === id);
+}
