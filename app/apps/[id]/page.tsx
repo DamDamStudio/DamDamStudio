@@ -62,15 +62,26 @@ export default function AppDetailPage() {
             </Link>
 
             <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
-              {app.iconImage && (
-                <Image
-                  src={app.iconImage}
-                  alt={`${app.name[lang]} app icon`}
-                  width={120}
-                  height={120}
-                  className="h-24 w-24 shrink-0 rounded-[24px] shadow-sm ring-1 ring-line sm:h-28 sm:w-28"
-                />
-              )}
+              {app.iconImage &&
+                (app.iconContain ? (
+                  <div className="grid h-24 w-24 shrink-0 place-items-center rounded-[24px] bg-white p-3.5 shadow-sm ring-1 ring-line sm:h-28 sm:w-28">
+                    <Image
+                      src={app.iconImage}
+                      alt={`${app.name[lang]} app icon`}
+                      width={120}
+                      height={120}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <Image
+                    src={app.iconImage}
+                    alt={`${app.name[lang]} app icon`}
+                    width={120}
+                    height={120}
+                    className="h-24 w-24 shrink-0 rounded-[24px] shadow-sm ring-1 ring-line sm:h-28 sm:w-28"
+                  />
+                ))}
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="text-xs font-medium uppercase tracking-wide text-clay">
@@ -115,6 +126,11 @@ export default function AppDetailPage() {
                     >
                       {t("apps.googleplay")}
                     </a>
+                  )}
+                  {!app.appStoreUrl && app.status === "soon" && (
+                    <span className="inline-flex items-center gap-2 rounded-full border border-clay/30 bg-clay-light px-6 py-3 text-sm font-medium text-clay-dark">
+                      ⏳ {t("detail.soon.cta")}
+                    </span>
                   )}
                 </div>
               </div>
@@ -243,7 +259,7 @@ export default function AppDetailPage() {
                     </div>
                   ))}
                 </dl>
-                {app.appStoreUrl && (
+                {app.appStoreUrl ? (
                   <a
                     href={app.appStoreUrl}
                     target="_blank"
@@ -252,7 +268,11 @@ export default function AppDetailPage() {
                   >
                      {t("apps.appstore")}
                   </a>
-                )}
+                ) : app.status === "soon" ? (
+                  <span className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-clay/30 bg-clay-light px-5 py-3 text-sm font-medium text-clay-dark">
+                    ⏳ {t("detail.soon.cta")}
+                  </span>
+                ) : null}
               </div>
             </aside>
           </div>

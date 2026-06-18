@@ -143,6 +143,52 @@ export const apps: AppItem[] = [
     },
     requires: { ko: "iOS", en: "iOS" },
     status: "soon",
+    screenshots: [
+      "/apps/dayin/01.png",
+      "/apps/dayin/02.png",
+      "/apps/dayin/03.png",
+      "/apps/dayin/04.png",
+      "/apps/dayin/05.png",
+      "/apps/dayin/06.png",
+    ],
+    overview: {
+      ko: "Day-In은 습관, 할 일, 그리고 하루의 감정까지 한 곳에서 기록하는 하루 회고 올인원 플래너입니다.\n\n매일 한 줄 회고와 함께 오늘의 감정을 색으로 남기면, 그 하루하루가 모여 ‘1년의 감정의 색’이 됩니다. 습관과 할 일은 밀어서 빠르게 체크하고, 캘린더와 아이젠하워 매트릭스로 일정과 우선순위를 한눈에 정리하세요.\n\n잠금화면·배경화면 위젯으로 앱을 열지 않고도 오늘의 할 일과 습관, 회고를 바로 확인할 수 있습니다.",
+      en: "Day-In is an all-in-one daily reflection planner that keeps your habits, to-dos, and the day's mood in one place.\n\nLeave a one-line reflection and a color for each day's mood, and those days gather into a “year in colors.” Swipe to check off habits and tasks quickly, and see your schedule and priorities at a glance with a calendar and an Eisenhower matrix.\n\nWith lock-screen and home-screen widgets, you can check today's tasks, habits, and reflection without even opening the app.",
+    },
+    forWhom: {
+      ko: [
+        "하루를 가볍게 돌아보고 감정을 기록하고 싶은 분",
+        "습관과 할 일을 한 앱에서 함께 관리하고 싶은 분",
+        "일정과 우선순위를 한눈에 정리하고 싶은 분",
+      ],
+      en: [
+        "Anyone who wants to look back on the day and log how it felt",
+        "People who want habits and to-dos managed in one app",
+        "Those who like to see schedule and priorities at a glance",
+      ],
+    },
+    features: {
+      ko: [
+        "하루 한 줄 회고와 감정 색 기록",
+        "1년의 감정을 색으로 보는 회고 히트맵 · 연속 기록",
+        "밀어서 빠르게 체크하는 습관·할 일 관리",
+        "일정과 습관을 함께 보는 캘린더",
+        "아이젠하워 매트릭스로 우선순위 정리",
+        "잠금화면·배경화면 위젯 지원",
+      ],
+      en: [
+        "One-line daily reflection with a mood color",
+        "A year of moods as a color heatmap, with streaks",
+        "Swipe to quickly check off habits and to-dos",
+        "A calendar that shows schedule and habits together",
+        "Prioritize with an Eisenhower matrix",
+        "Lock-screen and home-screen widgets",
+      ],
+    },
+    closing: {
+      ko: "Day-In 하나로, 하루를 돌아보는 가장 다정한 방법. 곧 App Store에서 만나요.",
+      en: "The kindest way to look back on your day, all in Day-In. Coming soon to the App Store.",
+    },
   },
 ];
 

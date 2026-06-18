@@ -84,13 +84,7 @@ function AppCard({ app, lang }: { app: AppItem; lang: "ko" | "en" }) {
   const isSoon = app.status === "soon";
 
   return (
-    <article
-      className={`flex flex-col rounded-2xl border border-line bg-cream p-7 transition-all ${
-        isSoon
-          ? ""
-          : "hover:-translate-y-0.5 hover:border-clay hover:shadow-[0_18px_50px_-30px_rgba(38,36,31,0.4)]"
-      }`}
-    >
+    <article className="flex flex-col rounded-2xl border border-line bg-cream p-7 transition-all hover:-translate-y-0.5 hover:border-clay hover:shadow-[0_18px_50px_-30px_rgba(38,36,31,0.4)]">
       {/* icon + name + (soon badge) */}
       <div className="flex items-start gap-4">
         <AppIcon app={app} lang={lang} />
@@ -119,32 +113,28 @@ function AppCard({ app, lang }: { app: AppItem; lang: "ko" | "en" }) {
         {app.summary[lang]}
       </p>
 
-      {!isSoon && (
-        <>
-          <hr className="my-6 border-line" />
-          <div className="flex items-center justify-between">
-            {app.appStoreUrl ? (
-              <a
-                href={app.appStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-transform hover:-translate-y-0.5"
-              >
-                 {t("apps.appstore.short")}
-              </a>
-            ) : (
-              <span />
-            )}
-            <Link
-              href={`/apps/${app.id}`}
-              className="inline-flex items-center gap-1 text-sm font-medium text-muted transition-colors hover:text-ink"
-            >
-              {t("apps.more")}
-              <span aria-hidden>›</span>
-            </Link>
-          </div>
-        </>
-      )}
+      <hr className="my-6 border-line" />
+      <div className="flex items-center justify-between">
+        {!isSoon && app.appStoreUrl ? (
+          <a
+            href={app.appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-transform hover:-translate-y-0.5"
+          >
+             {t("apps.appstore.short")}
+          </a>
+        ) : (
+          <span />
+        )}
+        <Link
+          href={`/apps/${app.id}`}
+          className="inline-flex items-center gap-1 text-sm font-medium text-muted transition-colors hover:text-ink"
+        >
+          {t("apps.more")}
+          <span aria-hidden>›</span>
+        </Link>
+      </div>
     </article>
   );
 }
