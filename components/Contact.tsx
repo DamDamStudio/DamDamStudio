@@ -2,7 +2,7 @@
 
 import { useI18n } from "@/lib/i18n";
 
-const EMAIL = "hello@damdam.studio";
+const EMAIL = "studio.damdam2@gmail.com";
 
 export default function Contact() {
   const { t } = useI18n();
