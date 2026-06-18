@@ -79,6 +79,7 @@ export const dict = {
   "detail.info.rating": { ko: "평점", en: "Rating" },
   "detail.notfound": { ko: "앱을 찾을 수 없어요.", en: "App not found." },
   "detail.privacy": { ko: "개인정보 처리방침", en: "Privacy Policy" },
+  "detail.terms": { ko: "이용약관", en: "Terms of Service" },
   "detail.soon.cta": { ko: "App Store 출시 예정", en: "Coming soon to the App Store" },
 
   "contact.eyebrow": { ko: "문의", en: "Contact" },

@@ -5,18 +5,18 @@ import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getApp } from "@/lib/apps";
-import { buildPrivacy } from "@/lib/privacy";
-import { getCustomPrivacy } from "@/lib/privacyContent";
+import { buildTerms } from "@/lib/terms";
+import { getCustomTerms } from "@/lib/termsContent";
 import { useI18n } from "@/lib/i18n";
 
-export default function PrivacyPage() {
+export default function TermsPage() {
   const { t, lang } = useI18n();
   const params = useParams();
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
   const app = id ? getApp(id) : undefined;
-  const custom = app ? getCustomPrivacy(app.id) : undefined;
+  const custom = app ? getCustomTerms(app.id) : undefined;
 
-  if (!app || (!app.privacy && !custom)) {
+  if (!app || (!app.terms && !custom)) {
     return (
       <>
         <Header />
@@ -39,8 +39,8 @@ export default function PrivacyPage() {
     ? {
         title:
           lang === "ko"
-            ? `${app.name[lang]} 개인정보 처리방침`
-            : `${app.name[lang]} Privacy Policy`,
+            ? `${app.name[lang]} 이용약관`
+            : `${app.name[lang]} Terms of Service`,
         intro: c.intro ?? "",
         sections: c.sections,
         updatedLabel: c.effective
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
             ? `← ${app.name[lang]}(으)로 돌아가기`
             : `← Back to ${app.name[lang]}`,
       }
-    : buildPrivacy(app.name[lang], app.privacy!, lang);
+    : buildTerms(app.name[lang], app.terms!, lang);
 
   return (
     <>

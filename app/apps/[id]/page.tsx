@@ -278,16 +278,31 @@ export default function AppDetailPage() {
           </div>
         </section>
 
-        {/* 제일 하단: 개인정보 처리방침 링크 */}
-        {app.privacy && (
+        {/* 제일 하단: 개인정보 처리방침 · 이용약관 링크 */}
+        {(app.privacy || app.terms) && (
           <div className="border-t border-line">
-            <div className="container-x flex justify-center px-6 py-8">
-              <Link
-                href={`/apps/${app.id}/privacy`}
-                className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
-              >
-                {t("detail.privacy")}
-              </Link>
+            <div className="container-x flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-8">
+              {app.privacy && (
+                <Link
+                  href={`/apps/${app.id}/privacy`}
+                  className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+                >
+                  {t("detail.privacy")}
+                </Link>
+              )}
+              {app.privacy && app.terms && (
+                <span aria-hidden className="text-line">
+                  ·
+                </span>
+              )}
+              {app.terms && (
+                <Link
+                  href={`/apps/${app.id}/terms`}
+                  className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+                >
+                  {t("detail.terms")}
+                </Link>
+              )}
             </div>
           </div>
         )}

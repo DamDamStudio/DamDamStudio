@@ -1,5 +1,6 @@
 import type { Lang } from "./i18n";
 import type { PrivacyConfig } from "./privacy";
+import type { TermsConfig } from "./terms";
 
 export type AppStatus = "live" | "soon";
 
@@ -43,6 +44,8 @@ export type AppItem = {
   price?: L;
   /** 개인정보 처리방침 설정 — 있으면 /apps/[id]/privacy 페이지가 생성됩니다. */
   privacy?: PrivacyConfig;
+  /** 이용약관 설정 — 있으면 /apps/[id]/terms 페이지가 생성됩니다. */
+  terms?: TermsConfig;
 };
 
 /**
@@ -114,16 +117,22 @@ export const apps: AppItem[] = [
       ko: "여로는 화려한 기능보다 여행의 흐름을 놓치지 않는 기록 경험을 중요하게 생각합니다. 준비부터 기록, 회고까지 한 번의 여행을 한곳에서 이어보세요.",
       en: "Yeoro values a recording experience that follows the flow of a journey over flashy features. From planning to logging to looking back — keep one trip together, in one place.",
     },
-    developer: "JinBae Jung",
+    developer: "DamDam Studio",
     requires: { ko: "iOS 17.0 이상", en: "iOS 17.0 or later" },
     languages: { ko: "한국어 · English", en: "Korean · English" },
     price: { ko: "무료", en: "Free" },
+    // 실제 페이지는 lib/privacyContent.ts의 공식 방침(customPrivacy.yeoro)이 우선 렌더됨.
     privacy: {
-      email: "jjb8382@gmail.com",
-      updated: "2026-06-18",
-      storage: "device",
+      email: "studio.damdam2@gmail.com",
+      updated: "2026-04-13",
+      storage: "server", // 광고·분석·크래시 리포팅으로 일부 데이터 외부 전송
       ads: true,
-      analytics: false,
+      analytics: true,
+    },
+    terms: {
+      email: "studio.damdam2@gmail.com",
+      updated: "2026-06-18",
+      free: true,
     },
   },
   {
@@ -189,6 +198,26 @@ export const apps: AppItem[] = [
       ko: "Day-In 하나로, 하루를 돌아보는 가장 다정한 방법. 곧 App Store에서 만나요.",
       en: "The kindest way to look back on your day, all in Day-In. Coming soon to the App Store.",
     },
+
+    // ── 출시할 때 채우기 (아래 주석만 해제) ──────────────────────────
+    // 1) status 를 "soon" → "live" 로 변경
+    // 2) appStoreUrl 주석 해제 후 실제 링크 입력
+    // appStoreUrl: "https://apps.apple.com/kr/app/.../idXXXXXXXXXX",
+    // 3) privacy 주석 해제 — 개인정보 처리방침 페이지가 자동 생성됨
+    //    storage: 기기에만="device" / 기기+iCloud 동기화="icloud" / 자체 서버="server" (하나만 선택)
+    privacy: {
+      email: "studio.damdam2@gmail.com",
+      updated: "2026-06-18",
+      storage: "icloud", // 기기 저장 + iCloud 동기화를 모두 포함
+      ads: true,      // 광고 SDK 사용 시 true
+      analytics: true, // 분석 SDK 사용 시 true
+    },
+    terms: {
+      email: "studio.damdam2@gmail.com",
+      updated: "2026-06-18",
+      free: true,
+    },
+    // ──────────────────────────────────────────────────────────────
   },
 ];
 
