@@ -1,4 +1,5 @@
 import type { Lang } from "./i18n";
+import type { PrivacyConfig } from "./privacy";
 
 export type AppStatus = "live" | "soon";
 
@@ -9,6 +10,8 @@ export type AppItem = {
   id: string;
   /** Path under /public to the real app icon. */
   iconImage?: string;
+  /** True when iconImage is a transparent logo — render padded on a white tile. */
+  iconContain?: boolean;
   /** Emoji fallback used when no iconImage is set. */
   icon?: string;
   name: L;
@@ -38,6 +41,8 @@ export type AppItem = {
   requires?: L;
   languages?: L;
   price?: L;
+  /** 개인정보 처리방침 설정 — 있으면 /apps/[id]/privacy 페이지가 생성됩니다. */
+  privacy?: PrivacyConfig;
 };
 
 /**
@@ -113,6 +118,31 @@ export const apps: AppItem[] = [
     requires: { ko: "iOS 17.0 이상", en: "iOS 17.0 or later" },
     languages: { ko: "한국어 · English", en: "Korean · English" },
     price: { ko: "무료", en: "Free" },
+    privacy: {
+      email: "jjb8382@gmail.com",
+      updated: "2026-06-18",
+      storage: "device",
+      ads: true,
+      analytics: false,
+    },
+  },
+  {
+    // 출시 대기 중 — 출시되면 appStoreUrl·screenshots·overview·privacy 등을 채우고 status를 "live"로.
+    id: "dayin",
+    iconImage: "/apps/dayin.png",
+    iconContain: true,
+    name: { ko: "Day-In", en: "Day-In" },
+    tagline: {
+      ko: "습관·할 일·감정 기록 — 하루 회고 올인원 플래너",
+      en: "Habits, to-dos & moods — an all-in-one daily reflection planner",
+    },
+    category: { ko: "생산성 · 라이프스타일", en: "Productivity · Lifestyle" },
+    summary: {
+      ko: "Day-In 하나로, 하루를 돌아보는 가장 다정한 방법.",
+      en: "The kindest way to look back on your day — all in one.",
+    },
+    requires: { ko: "iOS", en: "iOS" },
+    status: "soon",
   },
 ];
 

@@ -257,6 +257,20 @@ export default function AppDetailPage() {
             </aside>
           </div>
         </section>
+
+        {/* 제일 하단: 개인정보 처리방침 링크 */}
+        {app.privacy && (
+          <div className="border-t border-line">
+            <div className="container-x flex justify-center px-6 py-8">
+              <Link
+                href={`/apps/${app.id}/privacy`}
+                className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+              >
+                {t("detail.privacy")}
+              </Link>
+            </div>
+          </div>
+        )}
       </main>
       <Footer />
     </>

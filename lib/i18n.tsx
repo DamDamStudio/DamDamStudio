@@ -62,6 +62,7 @@ export const dict = {
   "apps.googleplay": { ko: "Google Play", en: "Google Play" },
   "apps.free": { ko: "무료", en: "Free" },
   "apps.more": { ko: "자세히 보기", en: "View details" },
+  "apps.soon": { ko: "출시 예정", en: "Coming soon" },
 
   // ── 앱 상세 페이지(/apps/[id]) ──
   "detail.back": { ko: "← 앱 목록으로", en: "← Back to apps" },
@@ -77,6 +78,7 @@ export const dict = {
   "detail.info.price": { ko: "가격", en: "Price" },
   "detail.info.rating": { ko: "평점", en: "Rating" },
   "detail.notfound": { ko: "앱을 찾을 수 없어요.", en: "App not found." },
+  "detail.privacy": { ko: "개인정보 처리방침", en: "Privacy Policy" },
 
   "contact.eyebrow": { ko: "문의", en: "Contact" },
   "contact.title": {
