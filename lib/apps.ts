@@ -214,8 +214,34 @@ export const apps: AppItem[] = [
     },
     terms: {
       email: "studio.damdam2@gmail.com",
-      updated: "2026-06-18",
-      free: true,
+      updated: "2026-06-23",
+      free: false, // Day In Pro 유료 기능 제공
+      payments: {
+        paragraphs: {
+          ko: ["Day-In은 일부 기능(Day In Pro)을 유료로 제공합니다."],
+          en: ["Day-In offers some features (Day In Pro) as paid options."],
+        },
+        bullets: {
+          ko: [
+            "자동 갱신 구독: 연간 구독, 월간 구독으로 제공되며, 7일 무료체험 후 자동으로 결제됩니다. 가격은 App Store에 표시된 금액을 따릅니다.",
+            "평생 이용: 1회 결제로 영구 이용하는 비구독 상품입니다.",
+            "구독은 현재 기간 종료 24시간 전까지 해지하지 않으면 자동으로 갱신되며, 갱신 요금이 청구됩니다.",
+            "결제는 구매 확정 시 사용자의 Apple 계정으로 청구됩니다.",
+            "구독 관리·해지는 기기의 설정 → Apple 계정 → 구독에서 언제든 할 수 있습니다.",
+            "무료체험 중 남은 기간은 유료 구독 구매 시 소멸됩니다.",
+            "환불은 Apple App Store 정책에 따릅니다.",
+          ],
+          en: [
+            "Auto-renewable subscription: Offered as annual and monthly plans, billed automatically after a 7-day free trial. Prices follow the amount shown on the App Store.",
+            "Lifetime access: A non-subscription product for permanent use with a single, one-time payment.",
+            "A subscription renews automatically and the renewal fee is charged unless it is cancelled at least 24 hours before the end of the current period.",
+            "Payment is charged to your Apple Account upon confirmation of purchase.",
+            "You can manage or cancel your subscription anytime in your device's Settings → Apple Account → Subscriptions.",
+            "Any unused portion of a free trial is forfeited when you purchase a paid subscription.",
+            "Refunds are subject to the Apple App Store policy.",
+          ],
+        },
+      },
     },
     // ──────────────────────────────────────────────────────────────
   },

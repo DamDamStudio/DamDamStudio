@@ -9,6 +9,14 @@ export type TermsConfig = {
   free?: boolean;
   /** Governing law / jurisdiction. Defaults to Republic of Korea. */
   governingLaw?: Record<Lang, string>;
+  /**
+   * 구독·결제 섹션 커스텀 내용 (있으면 기본 "결제" 섹션을 대체).
+   * 구독/인앱결제가 있는 앱에 사용.
+   */
+  payments?: {
+    paragraphs: Record<Lang, string[]>;
+    bullets?: Record<Lang, string[]>;
+  };
 };
 
 export type TermsSection = {
@@ -86,12 +94,15 @@ export function buildTerms(
         ],
       },
       {
-        heading: "8. Payments",
-        paragraphs: [
-          cfg.free
-            ? `${appName} is currently provided free of charge. If paid features are introduced later, purchases and refunds are handled by the App Store under Apple's terms.`
-            : "Purchases made in the app are processed by the App Store. Refunds are subject to Apple's policies.",
-        ],
+        heading: cfg.payments ? "8. Subscriptions & Payments" : "8. Payments",
+        paragraphs: cfg.payments
+          ? cfg.payments.paragraphs.en
+          : [
+              cfg.free
+                ? `${appName} is currently provided free of charge. If paid features are introduced later, purchases and refunds are handled by the App Store under Apple's terms.`
+                : "Purchases made in the app are processed by the App Store. Refunds are subject to Apple's policies.",
+            ],
+        bullets: cfg.payments?.bullets?.en,
       },
       {
         heading: "9. Changes to these terms",
@@ -165,12 +176,15 @@ export function buildTerms(
       ],
     },
     {
-      heading: "8. 결제",
-      paragraphs: [
-        cfg.free
-          ? `${appName}은 현재 무료로 제공됩니다. 향후 유료 기능이 추가되는 경우, 결제 및 환불은 Apple의 정책에 따라 App Store를 통해 처리됩니다.`
-          : "앱 내 결제는 App Store를 통해 처리되며, 환불은 Apple의 정책을 따릅니다.",
-      ],
+      heading: cfg.payments ? "8. 구독 및 결제" : "8. 결제",
+      paragraphs: cfg.payments
+        ? cfg.payments.paragraphs.ko
+        : [
+            cfg.free
+              ? `${appName}은 현재 무료로 제공됩니다. 향후 유료 기능이 추가되는 경우, 결제 및 환불은 Apple의 정책에 따라 App Store를 통해 처리됩니다.`
+              : "앱 내 결제는 App Store를 통해 처리되며, 환불은 Apple의 정책을 따릅니다.",
+          ],
+      bullets: cfg.payments?.bullets?.ko,
     },
     {
       heading: "9. 약관의 변경",
