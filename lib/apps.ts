@@ -136,7 +136,6 @@ export const apps: AppItem[] = [
     },
   },
   {
-    // 출시 대기 중 — 출시되면 appStoreUrl·screenshots·overview·privacy 등을 채우고 status를 "live"로.
     id: "dayin",
     iconImage: "/apps/dayin.png",
     iconContain: true,
@@ -150,8 +149,9 @@ export const apps: AppItem[] = [
       ko: "Day-In 하나로, 하루를 돌아보는 가장 다정한 방법.",
       en: "The kindest way to look back on your day — all in one.",
     },
-    requires: { ko: "iOS", en: "iOS" },
-    status: "soon",
+    free: true,
+    status: "live",
+    appStoreUrl: "https://apps.apple.com/kr/app/day-in/id6780700085",
     screenshots: [
       "/apps/dayin/01.png",
       "/apps/dayin/02.png",
@@ -195,16 +195,13 @@ export const apps: AppItem[] = [
       ],
     },
     closing: {
-      ko: "Day-In 하나로, 하루를 돌아보는 가장 다정한 방법. 곧 App Store에서 만나요.",
-      en: "The kindest way to look back on your day, all in Day-In. Coming soon to the App Store.",
+      ko: "Day-In 하나로, 하루를 돌아보는 가장 다정한 방법. 준비부터 기록, 회고까지 하루를 한곳에 담아보세요.",
+      en: "The kindest way to look back on your day, all in Day-In. Capture your day — from planning to logging to reflection — in one place.",
     },
-
-    // ── 출시할 때 채우기 (아래 주석만 해제) ──────────────────────────
-    // 1) status 를 "soon" → "live" 로 변경
-    // 2) appStoreUrl 주석 해제 후 실제 링크 입력
-    // appStoreUrl: "https://apps.apple.com/kr/app/.../idXXXXXXXXXX",
-    // 3) privacy 주석 해제 — 개인정보 처리방침 페이지가 자동 생성됨
-    //    storage: 기기에만="device" / 기기+iCloud 동기화="icloud" / 자체 서버="server" (하나만 선택)
+    developer: "DamDam Studio",
+    requires: { ko: "iOS 17.0 이상", en: "iOS 17.0 or later" },
+    languages: { ko: "한국어 · English", en: "Korean · English" },
+    price: { ko: "무료 (앱 내 구입)", en: "Free (In-App Purchases)" },
     privacy: {
       email: "studio.damdam2@gmail.com",
       updated: "2026-06-18",
@@ -243,7 +240,6 @@ export const apps: AppItem[] = [
         },
       },
     },
-    // ──────────────────────────────────────────────────────────────
   },
 ];
 
