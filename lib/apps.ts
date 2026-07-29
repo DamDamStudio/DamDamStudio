@@ -46,6 +46,9 @@ export type AppItem = {
   privacy?: PrivacyConfig;
   /** 이용약관 설정 — 있으면 /apps/[id]/terms 페이지가 생성됩니다. */
   terms?: TermsConfig;
+  /** 개인정보/약관을 외부 정적 HTML 등으로 직접 서빙할 때의 링크(있으면 링크만 노출). */
+  privacyHref?: string;
+  termsHref?: string;
 };
 
 /**
@@ -298,6 +301,8 @@ export const apps: AppItem[] = [
     },
     developer: "DamDam Studio",
     languages: { ko: "한국어", en: "Korean" },
+    privacyHref: "/apps/savvy/privacy",
+    termsHref: "/apps/savvy/terms",
   },
 ];
 

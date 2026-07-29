@@ -16,8 +16,12 @@ export default function Footer() {
   const pathname = usePathname();
   const appId = pathname?.match(/^\/apps\/([^/]+)/)?.[1];
   const app = appId ? getApp(appId) : undefined;
-  const hasPrivacy = !!app && (!!app.privacy || !!getCustomPrivacy(app.id));
-  const hasTerms = !!app && (!!app.terms || !!getCustomTerms(app.id));
+  const hasPrivacy =
+    !!app && (!!app.privacy || !!app.privacyHref || !!getCustomPrivacy(app.id));
+  const hasTerms =
+    !!app && (!!app.terms || !!app.termsHref || !!getCustomTerms(app.id));
+  const privacyHref = app?.privacyHref ?? `/apps/${appId}/privacy`;
+  const termsHref = app?.termsHref ?? `/apps/${appId}/terms`;
 
   return (
     <footer className="border-t border-line">
@@ -38,20 +42,20 @@ export default function Footer() {
               {t("nav.brand")}
             </Link>
             {hasPrivacy && (
-              <Link
-                href={`/apps/${appId}/privacy`}
+              <a
+                href={privacyHref}
                 className="transition-colors hover:text-ink"
               >
                 {t("footer.privacy")}
-              </Link>
+              </a>
             )}
             {hasTerms && (
-              <Link
-                href={`/apps/${appId}/terms`}
+              <a
+                href={termsHref}
                 className="transition-colors hover:text-ink"
               >
                 {t("footer.terms")}
-              </Link>
+              </a>
             )}
           </div>
           <p>

@@ -279,29 +279,29 @@ export default function AppDetailPage() {
         </section>
 
         {/* 제일 하단: 개인정보 처리방침 · 이용약관 링크 */}
-        {(app.privacy || app.terms) && (
+        {(app.privacy || app.privacyHref || app.terms || app.termsHref) && (
           <div className="border-t border-line">
             <div className="container-x flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-8">
-              {app.privacy && (
-                <Link
-                  href={`/apps/${app.id}/privacy`}
+              {(app.privacy || app.privacyHref) && (
+                <a
+                  href={app.privacyHref ?? `/apps/${app.id}/privacy`}
                   className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
                   {t("detail.privacy")}
-                </Link>
+                </a>
               )}
-              {app.privacy && app.terms && (
+              {(app.privacy || app.privacyHref) && (app.terms || app.termsHref) && (
                 <span aria-hidden className="text-line">
                   ·
                 </span>
               )}
-              {app.terms && (
-                <Link
-                  href={`/apps/${app.id}/terms`}
+              {(app.terms || app.termsHref) && (
+                <a
+                  href={app.termsHref ?? `/apps/${app.id}/terms`}
                   className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
                   {t("detail.terms")}
-                </Link>
+                </a>
               )}
             </div>
           </div>
