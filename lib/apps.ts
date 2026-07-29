@@ -241,6 +241,64 @@ export const apps: AppItem[] = [
       },
     },
   },
+  {
+    // 출시 예정 — 출시되면 appStoreUrl·screenshots 추가하고 status를 "live"로.
+    id: "savvy",
+    iconImage: "/apps/savvy.png",
+    iconContain: true,
+    name: { ko: "Savvy", en: "Savvy" },
+    tagline: {
+      ko: "말로 적으면 알아서 정리하는 로컬-퍼스트 AI 가계부",
+      en: "The local-first AI money app you write in plain words",
+    },
+    category: { ko: "금융", en: "Finance" },
+    summary: {
+      ko: "‘어제 스벅 5천원’처럼 말하듯 적으면 AI가 금액·카테고리·날짜를 알아서 정리해주는 로컬-퍼스트 가계부.",
+      en: "Jot it like you'd say it — “coffee ₩5,000 yesterday” — and AI files the amount, category, and date for you.",
+    },
+    requires: { ko: "iOS", en: "iOS" },
+    status: "soon",
+    overview: {
+      ko: "Savvy는 말이나 문장으로 빠르게 적기만 하면 AI가 알아서 정리해주는 로컬-퍼스트 AI 가계부입니다.\n\n‘어제 스벅 5천원’처럼 편하게 적으면 금액·카테고리·날짜를 자동으로 파싱해 기록하고, 월별 지출을 분석해 절약 코칭까지 해줍니다. 영수증은 사진 한 장으로 인식하고, 내역은 자동으로 분류돼요.\n\n모든 가계부 데이터는 서버가 아닌 내 기기에만 저장됩니다. AI 처리에 필요한 부분만 외부에 전송하고, 나머지는 오프라인·프라이버시 우선으로 동작합니다.",
+      en: "Savvy is a local-first AI money app that files everything for you — you just jot it down in plain words.\n\nWrite something like “coffee ₩5,000 yesterday” and it automatically parses the amount, category, and date, analyzes your monthly spending, and even coaches you on saving. Snap a receipt to capture items, and entries are categorized automatically.\n\nAll of your data stays on your device, not on a server. Only what the AI needs is sent out — everything else runs offline, privacy-first.",
+    },
+    forWhom: {
+      ko: [
+        "가계부를 여러 번 시도했지만 입력이 번거로워 포기했던 분",
+        "카드 연동·영수증 스캔 없이 말하듯 빠르게 기록하고 싶은 분",
+        "내 지출 데이터가 서버가 아닌 내 기기에만 있길 바라는 분",
+      ],
+      en: [
+        "Anyone who's tried budgeting apps but quit because logging felt like a chore",
+        "People who want to record quickly in plain words — no card linking or scanning",
+        "Those who want their spending data on their device, not on a server",
+      ],
+    },
+    features: {
+      ko: [
+        "자연어 입력 — “어제 스벅 5천원”이면 금액·카테고리·날짜 자동 기록",
+        "지출 분석·코칭 — 월별 인사이트와 절약 조언",
+        "영수증 OCR — 사진 한 장으로 항목 자동 인식",
+        "입력 내역 자동 카테고리 분류",
+        "로컬-퍼스트 — 데이터는 내 기기에만, AI 처리만 외부 호출",
+        "지출·수입·이체와 결제수단·카테고리 관리",
+      ],
+      en: [
+        "Natural-language input — “coffee ₩5,000 yesterday” logs amount, category, and date",
+        "Spending analysis & coaching — monthly insights and saving tips",
+        "Receipt OCR — capture items from a single photo",
+        "Automatic category classification",
+        "Local-first — data stays on your device; only AI processing goes out",
+        "Track expenses, income, and transfers with payment methods and categories",
+      ],
+    },
+    closing: {
+      ko: "Savvy는 ‘기록의 번거로움’을 AI로 덜어내는 가계부입니다. 곧 App Store에서 만나요.",
+      en: "Savvy takes the chore out of tracking, with AI. Coming soon to the App Store.",
+    },
+    developer: "DamDam Studio",
+    languages: { ko: "한국어", en: "Korean" },
+  },
 ];
 
 /** Placeholder shown after the real apps to signal the studio is still building. */
