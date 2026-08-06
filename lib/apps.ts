@@ -245,7 +245,6 @@ export const apps: AppItem[] = [
     },
   },
   {
-    // 출시 예정 — 출시되면 appStoreUrl·screenshots 추가하고 status를 "live"로.
     id: "savvy",
     iconImage: "/apps/savvy.png",
     iconContain: true,
@@ -259,8 +258,19 @@ export const apps: AppItem[] = [
       ko: "‘어제 스벅 5천원’처럼 말하듯 적으면 AI가 금액·카테고리·날짜를 알아서 정리해주는 로컬-퍼스트 가계부.",
       en: "Jot it like you'd say it — “coffee ₩5,000 yesterday” — and AI files the amount, category, and date for you.",
     },
-    requires: { ko: "iOS", en: "iOS" },
-    status: "soon",
+    free: true,
+    status: "live",
+    appStoreUrl: "https://apps.apple.com/kr/app/id6795720506",
+    requires: { ko: "iOS 17.0 이상", en: "iOS 17.0 or later" },
+    price: { ko: "무료 (앱 내 구입)", en: "Free (In-App Purchases)" },
+    screenshots: [
+      "/apps/savvy/01.png",
+      "/apps/savvy/02.png",
+      "/apps/savvy/03.png",
+      "/apps/savvy/04.png",
+      "/apps/savvy/05.png",
+      "/apps/savvy/06.png",
+    ],
     overview: {
       ko: "Savvy는 말이나 문장으로 빠르게 적기만 하면 AI가 알아서 정리해주는 로컬-퍼스트 AI 가계부입니다.\n\n‘어제 스벅 5천원’처럼 편하게 적으면 금액·카테고리·날짜를 자동으로 파싱해 기록하고, 월별 지출을 분석해 절약 코칭까지 해줍니다. 영수증은 사진 한 장으로 인식하고, 내역은 자동으로 분류돼요.\n\n모든 가계부 데이터는 서버가 아닌 내 기기에만 저장됩니다. AI 처리에 필요한 부분만 외부에 전송하고, 나머지는 오프라인·프라이버시 우선으로 동작합니다.",
       en: "Savvy is a local-first AI money app that files everything for you — you just jot it down in plain words.\n\nWrite something like “coffee ₩5,000 yesterday” and it automatically parses the amount, category, and date, analyzes your monthly spending, and even coaches you on saving. Snap a receipt to capture items, and entries are categorized automatically.\n\nAll of your data stays on your device, not on a server. Only what the AI needs is sent out — everything else runs offline, privacy-first.",
