@@ -77,6 +77,7 @@ export const dict = {
   "detail.info.languages": { ko: "언어", en: "Languages" },
   "detail.info.price": { ko: "가격", en: "Price" },
   "detail.info.rating": { ko: "평점", en: "Rating" },
+  "detail.info.version": { ko: "버전", en: "Version" },
   "detail.notfound": { ko: "앱을 찾을 수 없어요.", en: "App not found." },
   "detail.privacy": { ko: "개인정보 처리방침", en: "Privacy Policy" },
   "detail.terms": { ko: "이용약관", en: "Terms of Service" },

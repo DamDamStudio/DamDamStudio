@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { apps, moreComing, type AppItem } from "@/lib/apps";
+import { displayRating } from "@/lib/appstoreLive";
 import { useI18n } from "@/lib/i18n";
 
 export default function Apps() {
@@ -82,6 +83,7 @@ function AppIcon({ app, lang }: { app: AppItem; lang: "ko" | "en" }) {
 function AppCard({ app, lang }: { app: AppItem; lang: "ko" | "en" }) {
   const { t } = useI18n();
   const isSoon = app.status === "soon";
+  const rating = displayRating(app.id, app.rating);
 
   return (
     <article className="flex flex-col rounded-2xl border border-line bg-cream p-7 transition-all hover:-translate-y-0.5 hover:border-clay hover:shadow-[0_18px_50px_-30px_rgba(38,36,31,0.4)]">
@@ -101,8 +103,8 @@ function AppCard({ app, lang }: { app: AppItem; lang: "ko" | "en" }) {
           </div>
           <p className="mt-1 text-sm font-medium text-clay">
             {app.category[lang]}
-            {!isSoon && app.rating != null && (
-              <span className="ml-2 text-muted">★ {app.rating.toFixed(1)}</span>
+            {!isSoon && rating != null && (
+              <span className="ml-2 text-muted">★ {rating.toFixed(1)}</span>
             )}
           </p>
         </div>

@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getApp } from "@/lib/apps";
+import { displayRating, liveVersion } from "@/lib/appstoreLive";
 import { useI18n, type DictKey } from "@/lib/i18n";
 
 export default function AppDetailPage() {
@@ -34,13 +35,18 @@ export default function AppDetailPage() {
 
   const overviewParas = (app.overview?.[lang] ?? "").split("\n\n").filter(Boolean);
 
+  // 평점·버전은 App Store 라이브 데이터(자동 동기화) 우선
+  const rating = displayRating(app.id, app.rating);
+  const version = liveVersion(app.id);
+
   const allInfoRows: { label: DictKey; value?: string }[] = [
     { label: "detail.info.developer", value: app.developer },
     { label: "detail.info.category", value: app.category[lang] },
     {
       label: "detail.info.rating",
-      value: app.rating != null ? `★ ${app.rating.toFixed(1)}` : undefined,
+      value: rating != null ? `★ ${rating.toFixed(1)}` : undefined,
     },
+    { label: "detail.info.version", value: version },
     { label: "detail.info.requires", value: app.requires?.[lang] },
     { label: "detail.info.languages", value: app.languages?.[lang] },
     { label: "detail.info.price", value: app.price?.[lang] },
@@ -87,10 +93,9 @@ export default function AppDetailPage() {
                   <span className="text-xs font-medium uppercase tracking-wide text-clay">
                     {app.category[lang]}
                   </span>
-                  {app.rating != null && (
+                  {rating != null && (
                     <span className="text-xs font-medium text-muted">
-                      <span className="text-clay">★</span>{" "}
-                      {app.rating.toFixed(1)}
+                      <span className="text-clay">★</span> {rating.toFixed(1)}
                     </span>
                   )}
                   {app.free && (
