@@ -20,6 +20,7 @@ const nextConfig = {
     return [
       { source: "/apps/savvy/privacy", destination: "/apps/savvy/privacy.html" },
       { source: "/apps/savvy/terms", destination: "/apps/savvy/terms.html" },
+      { source: "/apps/savvy/open-source", destination: "/apps/savvy/open-source.html" },
     ];
   },
 };
