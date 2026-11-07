@@ -49,11 +49,13 @@ export type AppItem = {
   /** 개인정보/약관을 외부 정적 HTML 등으로 직접 서빙할 때의 링크(있으면 링크만 노출). */
   privacyHref?: string;
   termsHref?: string;
+  /** Optional app-specific support page. */
+  supportHref?: string;
 };
 
 /**
- * Real catalog. Add new apps here — cards render from the list, and each "live"
- * app gets a detail page at /apps/<id> (see app/apps/[id]/page.tsx).
+ * Real catalog. Add new apps here — cards render from the list, and apps with
+ * detail content can be introduced before launch at /apps/<id>.
  */
 export const apps: AppItem[] = [
   {
@@ -333,6 +335,82 @@ export const apps: AppItem[] = [
     languages: { ko: "한국어 · English", en: "Korean · English" },
     privacyHref: "/apps/savvy/privacy",
     termsHref: "/apps/savvy/terms",
+  },
+  {
+    id: "sseukgarim",
+    iconImage: "/apps/sseukgarim.png",
+    name: { ko: "쓱가림", en: "SseukGarim" },
+    tagline: {
+      ko: "보여주기 전에, 필요한 정보만 쓱 가려요",
+      en: "Cover the details before you share",
+    },
+    category: { ko: "사진 편집 · 개인정보 보호", en: "Photo Editing · Privacy" },
+    summary: {
+      ko: "사진 속 글자를 탭하거나 사각형을 그려 가린 뒤 새 이미지로 저장·공유하는 iPhone 앱. 사진 편집과 글자 인식은 기기 안에서 처리합니다.",
+      en: "An iPhone app that covers text with a tap or a rectangle, then saves or shares a new image. Editing and text recognition happen on your device.",
+    },
+    free: false,
+    status: "soon",
+    screenshots: [
+      "/apps/sseukgarim/01.png",
+      "/apps/sseukgarim/02.png",
+      "/apps/sseukgarim/03.png",
+      "/apps/sseukgarim/04.png",
+    ],
+    overview: {
+      ko: "쓱가림은 사진이나 스크린샷 한 장에서 가릴 부분을 골라 새 이미지로 저장·공유하는 iPhone 앱입니다. 이름이나 전화번호처럼 공유 전에 가려야 할 정보를 간단하게 정리해 보세요.\n\nApple Vision이 기기 안에서 한국어·영어 글자 영역을 찾으면, 원하는 영역을 탭해 가림을 선택하거나 해제할 수 있습니다. 인식되지 않은 부분은 사각형을 직접 그리고, 확대·이동과 실행 취소로 결과를 확인합니다.\n\n가림은 완전히 불투명한 검은색으로 새 PNG에 합성됩니다. 원본 사진은 유지하고 원본의 위치정보·촬영정보 등 메타데이터는 새 이미지에 복사하지 않습니다. 서버, 회원가입, 광고, 외부 AI API 없이 기기 안에서 편집합니다.",
+      en: "SseukGarim lets you choose what to cover in a single photo or screenshot, then save or share a new image. Hide details such as a name or phone number before passing a picture along.\n\nApple Vision finds Korean and English text regions on your device. Tap a region to select or deselect it, draw a rectangle over anything recognition missed, and check your work with zoom, pan, and undo.\n\nFully opaque black covers are flattened into a new PNG. Your original photo stays unchanged, and its location, camera, and other source metadata are not copied to the new image. Editing runs on your device without a server, account, ads, or external AI APIs. The app interface is available in Korean only.",
+    },
+    forWhom: {
+      ko: [
+        "이름·전화번호가 담긴 사진이나 스크린샷을 공유하기 전에 가리고 싶은 분",
+        "자동 인식과 직접 그리기를 함께 사용해 필요한 부분만 가리고 싶은 분",
+        "회원가입이나 광고 없이 사진 한 장을 간단히 편집하고 싶은 분",
+      ],
+      en: [
+        "People who want to hide names or phone numbers before sharing a photo or screenshot",
+        "Anyone who wants both recognized text selection and manual rectangle covers",
+        "People who want a simple single-photo editor without accounts or ads",
+      ],
+    },
+    features: {
+      ko: [
+        "사진 또는 스크린샷 한 장 선택",
+        "기기 내 Apple Vision 한국어·영어 글자 영역 인식",
+        "탭으로 가릴 글자 영역 선택·해제",
+        "인식되지 않은 부분을 직접 사각형으로 가리기",
+        "두 손가락 확대·이동과 실행 취소",
+        "불투명 검정 가림을 합성한 새 PNG 저장·공유",
+        "원본 사진 유지, 원본 위치·촬영 메타데이터 제외",
+        "서버·회원가입·광고·외부 AI API 없이 편집",
+        "구독·앱 내 결제 없는 일회성 유료 다운로드",
+      ],
+      en: [
+        "Choose one photo or screenshot",
+        "On-device Korean and English text recognition with Apple Vision",
+        "Tap text regions to select or deselect covers",
+        "Draw rectangles over areas recognition missed",
+        "Two-finger zoom and pan, plus undo",
+        "Save or share a new PNG with opaque black covers flattened in",
+        "Keep the original photo and omit its location and camera metadata",
+        "Edit without servers, accounts, ads, or external AI APIs",
+        "A one-time paid download with no subscription or in-app purchases",
+      ],
+    },
+    closing: {
+      ko: "자동 인식이 모든 개인정보를 찾아 주지는 않습니다. 글자가 아닌 정보나 놓친 부분은 직접 가리고, 내보내기 전에 사진 전체를 확대해 확인해 주세요. 편집 중인 작업은 앱을 종료하면 복구되지 않습니다.",
+      en: "Text recognition may miss private information. Manually cover non-text details and anything it missed, then inspect the whole image before exporting. An unfinished edit cannot be restored after the app closes.",
+    },
+    developer: "DamDam Studio",
+    requires: { ko: "iPhone · iOS 17.0 이상", en: "iPhone · iOS 17.0 or later" },
+    languages: { ko: "한국어 전용", en: "Korean only" },
+    price: {
+      ko: "유료 · 일회성 구매 (출시 가격 미정)",
+      en: "One-time paid download (final price to be confirmed)",
+    },
+    privacyHref: "/apps/sseukgarim/privacy.html",
+    termsHref: "/apps/sseukgarim/terms.html",
+    supportHref: "/apps/sseukgarim/support.html",
   },
 ];
 

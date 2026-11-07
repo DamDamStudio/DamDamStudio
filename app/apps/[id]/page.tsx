@@ -293,10 +293,18 @@ export default function AppDetailPage() {
           </div>
         </section>
 
-        {/* 제일 하단: 개인정보 처리방침 · 이용약관 링크 */}
-        {(app.privacy || app.privacyHref || app.terms || app.termsHref) && (
+        {/* 제일 하단: 고객지원 · 개인정보 처리방침 · 이용약관 링크 */}
+        {(app.supportHref || app.privacy || app.privacyHref || app.terms || app.termsHref) && (
           <div className="border-t border-line">
             <div className="container-x flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-8">
+              {app.supportHref && (
+                <a
+                  href={app.supportHref}
+                  className="text-sm font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+                >
+                  {t("detail.support")}
+                </a>
+              )}
               {(app.privacy || app.privacyHref) && (
                 <a
                   href={app.privacyHref ?? `/apps/${app.id}/privacy`}
