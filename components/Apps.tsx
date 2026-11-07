@@ -116,19 +116,29 @@ function AppCard({ app, lang }: { app: AppItem; lang: "ko" | "en" }) {
       </p>
 
       <hr className="my-6 border-line" />
-      <div className="flex items-center justify-between">
-        {!isSoon && app.appStoreUrl ? (
-          <a
-            href={app.appStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-transform hover:-translate-y-0.5"
-          >
-             {t("apps.appstore.short")}
-          </a>
-        ) : (
-          <span />
-        )}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2">
+          {!isSoon && app.appStoreUrl && (
+            <a
+              href={app.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-transform hover:-translate-y-0.5"
+            >
+              {t("apps.appstore.short")}
+            </a>
+          )}
+          {!isSoon && app.googlePlayUrl && (
+            <a
+              href={app.googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-clay-light"
+            >
+              {t("apps.googleplay")}
+            </a>
+          )}
+        </div>
         <Link
           href={`/apps/${app.id}`}
           className="inline-flex items-center gap-1 text-sm font-medium text-muted transition-colors hover:text-ink"
