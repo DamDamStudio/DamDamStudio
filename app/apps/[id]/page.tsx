@@ -278,6 +278,16 @@ export default function AppDetailPage() {
                     ⏳ {t("detail.soon.cta")}
                   </span>
                 ) : null}
+                {app.googlePlayUrl && (
+                  <a
+                    href={app.googlePlayUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-clay-light"
+                  >
+                    {t("apps.googleplay")}
+                  </a>
+                )}
               </div>
             </aside>
           </div>
