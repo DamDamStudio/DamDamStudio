@@ -257,8 +257,8 @@ export default function AppDetailPage() {
                         i > 0 ? "border-t border-line" : ""
                       }`}
                     >
-                      <dt className="text-muted">{t(row.label)}</dt>
-                      <dd className="text-right font-medium text-ink">
+                      <dt className="shrink-0 whitespace-nowrap text-muted">{t(row.label)}</dt>
+                      <dd className="min-w-0 text-right font-medium text-ink">
                         {row.value}
                       </dd>
                     </div>
