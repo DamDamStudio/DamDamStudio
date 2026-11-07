@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="웹그대로 지원 · 담담스튜디오의 Safari 확장 웹그대로 안내">
+  <title>웹그대로 지원 · 담담스튜디오</title>
+  <style>
+:root { color-scheme: light; --paper: #f4f0e8; --ink: #211e1a; --muted: #6f675d; --line: #e4ddd0; --clay: #8f4530; --tint: #efe4d9; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.8; overflow-wrap: anywhere; }
+a { color: var(--clay); text-underline-offset: .2em; text-decoration-thickness: .08em; }
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; border-radius: 2px; }
+.skip-link { position: absolute; top: .5rem; left: .75rem; z-index: 1; padding: .65rem 1rem; background: var(--ink); color: var(--paper); transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+.shell { width: min(100% - 2.5rem, 46rem); margin-inline: auto; }
+.site-header { border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: .5rem 1rem; flex-wrap: wrap; padding-block: 1rem; }
+.brand { color: var(--ink); font-family: Georgia, "AppleMyungjo", serif; font-size: 1.05rem; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9375rem; }
+main { padding-block: 3rem 3.5rem; }
+.eyebrow { margin: 0 0 .5rem; color: var(--clay); font-size: .8125rem; font-weight: 700; letter-spacing: .04em; }
+h1 { margin: 0 0 1.5rem; font-family: Georgia, "AppleMyungjo", serif; font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 600; line-height: 1.35; letter-spacing: -.04em; }
+h2 { margin: 0 0 .75rem; font-size: 1.2rem; line-height: 1.5; letter-spacing: -.025em; }
+p { margin: 0 0 1.25rem; }
+section + section { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+ol, ul { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li + li { margin-top: .5rem; }
+.notice { margin-bottom: 2rem; padding: 1rem 1.15rem; border-left: 3px solid var(--clay); border-radius: 0 .5rem .5rem 0; background: var(--tint); font-size: .9375rem; }
+.notice p:last-child, section p:last-child { margin-bottom: 0; }
+.contact-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+.site-footer { padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+.site-footer p { margin-bottom: .35rem; }
+@media (max-width: 420px) { .shell { width: calc(100% - 2rem); } main { padding-top: 2rem; } .header-inner { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/">담담스튜디오</a>
+      <nav aria-label="웹그대로 안내">
+        <a href="support.html" aria-current="page">지원</a>
+        <a href="privacy.html">개인정보 처리방침</a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell" id="main" tabindex="-1">
+    <p class="eyebrow">SAFARI 확장 · 지원 안내</p>
+    <h1>웹그대로 지원</h1>
+    <p class="notice">현재 실기기·TestFlight·출시를 위한 검증 단계입니다. 공개 다운로드 링크는 아직 제공하지 않습니다.</p>
+    <section aria-labelledby="about-title">
+      <h2 id="about-title">웹에서 계속 읽기</h2>
+      <p>웹그대로는 Safari에서 일부 지원 사이트와 화면의 앱 설치·‘앱에서 계속하기’ 유도 팝업과 배너를 숨기는 확장 프로그램입니다. 지원 사이트는 앱 안에서 확인할 수 있습니다.</p>
+      <p>사이트의 화면 구조와 사용 환경에 따라 작동이 달라질 수 있습니다. 모든 웹사이트나 모든 팝업을 지원하지 않습니다.</p>
+    </section>
+    <section aria-labelledby="setup-title">
+      <h2 id="setup-title">처음 사용하는 방법</h2>
+      <ol>
+        <li>웹그대로 앱을 열어 Safari 확장 활성화 안내를 확인합니다.</li>
+        <li>기기의 설정에서 Safari의 ‘확장 프로그램’을 찾아 웹그대로 확장을 켭니다.</li>
+        <li>사용할 지원 사이트의 웹사이트 접근을 허용합니다. Safari의 웹사이트 접근 권한은 사용자가 관리할 수 있습니다.</li>
+        <li>앱에서 해당 사이트의 차단을 켜고, Safari로 돌아와 웹페이지를 새로고침합니다.</li>
+      </ol>
+    </section>
+    <section aria-labelledby="help-title">
+      <h2 id="help-title">화면이 불편하거나 차단이 작동하지 않을 때</h2>
+      <p>앱에서 해당 사이트의 차단을 끄고 Safari의 웹페이지를 새로고침하세요. 사이트가 화면 구조를 변경하면 차단 규칙이 더 이상 맞지 않을 수 있습니다.</p>
+      <p>Safari 자체 Smart App Banner와 다른 앱의 인앱 브라우저는 지원하지 않습니다. 로그인, 결제, 본인 인증, 보안 확인을 제거하거나 우회하지 않습니다.</p>
+    </section>
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">문의하기</h2>
+      <p>도움이 필요하면 아래 이메일로 문의해 주세요. 비밀번호나 결제정보는 문의에 포함하지 마세요.</p>
+      <p><a class="contact-link" href="mailto:studio.damdam2@gmail.com">studio.damdam2@gmail.com</a></p>
+      <p>기기 안에서 처리하는 정보와 설정 저장에 대한 설명은 <a href="privacy.html">개인정보 처리방침</a>에서 확인할 수 있습니다.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell">
+      <p>담담스튜디오(DamDamStudio)</p>
+      <p>© 2026 DamDamStudio</p>
+    </div>
+  </footer>
+</body>
+</html>
