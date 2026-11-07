@@ -405,8 +405,8 @@ export const apps: AppItem[] = [
     requires: { ko: "iPhone · iOS 17.0 이상", en: "iPhone · iOS 17.0 or later" },
     languages: { ko: "한국어 · English · 日本語 · 简体中文", en: "Korean · English · Japanese · Simplified Chinese" },
     price: {
-      ko: "유료 · 일회성 구매 (출시 가격 미정)",
-      en: "One-time paid download (final price to be confirmed)",
+      ko: "유료 · 일회성 구매 (한국 App Store 1,100원)",
+      en: "One-time paid download (Korean App Store: ₩1,100)",
     },
     privacyHref: "/apps/sseukgarim/privacy.html",
     termsHref: "/apps/sseukgarim/terms.html",
