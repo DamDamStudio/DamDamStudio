@@ -358,8 +358,8 @@ export const apps: AppItem[] = [
       "/apps/sseukgarim/04.png",
     ],
     overview: {
-      ko: "쓱가림은 사진이나 스크린샷 한 장에서 가릴 부분을 골라 새 이미지로 저장·공유하는 iPhone 앱입니다. 이름이나 전화번호처럼 공유 전에 가려야 할 정보를 간단하게 정리해 보세요.\n\nApple Vision이 기기 안에서 한국어·영어 글자 영역을 찾으면, 원하는 영역을 탭해 가림을 선택하거나 해제할 수 있습니다. 인식되지 않은 부분은 사각형을 직접 그리고, 확대·이동과 실행 취소로 결과를 확인합니다.\n\n가림은 완전히 불투명한 검은색으로 새 PNG에 합성됩니다. 원본 사진은 유지하고 원본의 위치정보·촬영정보 등 메타데이터는 새 이미지에 복사하지 않습니다. 서버, 회원가입, 광고, 외부 AI API 없이 기기 안에서 편집합니다.",
-      en: "SseukGarim lets you choose what to cover in a single photo or screenshot, then save or share a new image. Hide details such as a name or phone number before passing a picture along.\n\nApple Vision finds Korean and English text regions on your device. Tap a region to select or deselect it, draw a rectangle over anything recognition missed, and check your work with zoom, pan, and undo.\n\nFully opaque black covers are flattened into a new PNG. Your original photo stays unchanged, and its location, camera, and other source metadata are not copied to the new image. Editing runs on your device without a server, account, ads, or external AI APIs. The app interface is available in Korean and English.",
+      ko: "쓱가림은 사진이나 스크린샷 한 장에서 가릴 부분을 골라 새 이미지로 저장·공유하는 iPhone 앱입니다. 이름이나 전화번호처럼 공유 전에 가려야 할 정보를 간단하게 정리해 보세요.\n\nApple Vision이 기기 안에서 한국어·영어·일본어·중국어 간체 글자 영역을 찾으면, 원하는 영역을 탭해 가림을 선택하거나 해제할 수 있습니다. 인식되지 않은 부분은 사각형을 직접 그리고, 확대·이동과 실행 취소로 결과를 확인합니다.\n\n가림은 완전히 불투명한 검은색으로 새 PNG에 합성됩니다. 원본 사진은 유지하고 원본의 위치정보·촬영정보 등 메타데이터는 새 이미지에 복사하지 않습니다. 서버, 회원가입, 광고, 외부 AI API 없이 기기 안에서 편집합니다.",
+      en: "SseukGarim lets you choose what to cover in a single photo or screenshot, then save or share a new image. Hide details such as a name or phone number before passing a picture along.\n\nApple Vision finds Korean, English, Japanese, and Simplified Chinese text regions on your device. Tap a region to select or deselect it, draw a rectangle over anything recognition missed, and check your work with zoom, pan, and undo.\n\nFully opaque black covers are flattened into a new PNG. Your original photo stays unchanged, and its location, camera, and other source metadata are not copied to the new image. Editing runs on your device without a server, account, ads, or external AI APIs. The app interface is available in Korean, English, Japanese, and Simplified Chinese.",
     },
     forWhom: {
       ko: [
@@ -376,7 +376,7 @@ export const apps: AppItem[] = [
     features: {
       ko: [
         "사진 또는 스크린샷 한 장 선택",
-        "기기 내 Apple Vision 한국어·영어 글자 영역 인식",
+        "기기 내 Apple Vision 한국어·영어·일본어·중국어 간체 글자 영역 인식",
         "탭으로 가릴 글자 영역 선택·해제",
         "인식되지 않은 부분을 직접 사각형으로 가리기",
         "두 손가락 확대·이동과 실행 취소",
@@ -387,7 +387,7 @@ export const apps: AppItem[] = [
       ],
       en: [
         "Choose one photo or screenshot",
-        "On-device Korean and English text recognition with Apple Vision",
+        "On-device Korean, English, Japanese, and Simplified Chinese text recognition with Apple Vision",
         "Tap text regions to select or deselect covers",
         "Draw rectangles over areas recognition missed",
         "Two-finger zoom and pan, plus undo",
@@ -403,7 +403,7 @@ export const apps: AppItem[] = [
     },
     developer: "DamDam Studio",
     requires: { ko: "iPhone · iOS 17.0 이상", en: "iPhone · iOS 17.0 or later" },
-    languages: { ko: "한국어 · English", en: "Korean · English" },
+    languages: { ko: "한국어 · English · 日本語 · 简体中文", en: "Korean · English · Japanese · Simplified Chinese" },
     price: {
       ko: "유료 · 일회성 구매 (출시 가격 미정)",
       en: "One-time paid download (final price to be confirmed)",
