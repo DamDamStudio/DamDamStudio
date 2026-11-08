@@ -350,7 +350,8 @@ export const apps: AppItem[] = [
       en: "An iPhone app that covers text with a tap or a rectangle, then saves or shares a new image. Editing and text recognition happen on your device.",
     },
     free: false,
-    status: "soon",
+    status: "live",
+    appStoreUrl: "https://apps.apple.com/kr/app/id6831950696",
     screenshots: [
       "/apps/sseukgarim/01.png",
       "/apps/sseukgarim/02.png",
