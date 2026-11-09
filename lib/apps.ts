@@ -27,8 +27,8 @@ export type AppItem = {
   googlePlayUrl?: string;
 
   // ── 상세 페이지(/apps/[id]) 용 ──
-  /** Phone screenshots under /public. */
-  screenshots?: string[];
+  /** Phone screenshots under /public, optionally localized with alt text. */
+  screenshots?: (string | { src: L; alt: L })[];
   /** Intro paragraphs (split on \n\n when rendering). */
   overview?: L;
   /** "이런 분께 잘 맞아요" bullet list. */
@@ -341,66 +341,100 @@ export const apps: AppItem[] = [
     iconImage: "/apps/sseukgarim.png",
     name: { ko: "쓱가림", en: "SseukGarim" },
     tagline: {
-      ko: "보여주기 전에, 필요한 정보만 쓱 가려요",
-      en: "Cover the details before you share",
+      ko: "공유하기 전에, 글자는 가리고 얼굴은 모자이크",
+      en: "Cover text and pixelate faces before you share",
     },
     category: { ko: "사진 편집 · 개인정보 보호", en: "Photo Editing · Privacy" },
     summary: {
-      ko: "사진 속 글자를 탭하거나 사각형을 그려 가린 뒤 새 이미지로 저장·공유하는 iPhone 앱. 사진 편집과 글자 인식은 기기 안에서 처리합니다.",
-      en: "An iPhone app that covers text with a tap or a rectangle, then saves or shares a new image. Editing and text recognition happen on your device.",
+      ko: "사진 속 글자는 검정으로, 얼굴은 모자이크로 가려요. 인식부터 새 이미지 저장까지 iPhone 안에서 처리합니다.",
+      en: "Hide text with solid black covers and pixelate faces. From detection to saving a new image, it all happens on your iPhone.",
     },
     free: false,
     status: "live",
     appStoreUrl: "https://apps.apple.com/kr/app/id6831950696",
     screenshots: [
-      "/apps/sseukgarim/01.png",
-      "/apps/sseukgarim/02.png",
-      "/apps/sseukgarim/03.png",
-      "/apps/sseukgarim/04.png",
+      {
+        src: {
+          ko: "/apps/sseukgarim/1.1.0/ko/01-home.webp",
+          en: "/apps/sseukgarim/1.1.0/en/01-home.webp",
+        },
+        alt: {
+          ko: "쓱가림 홈의 사진 선택 버튼과 글자·얼굴·직접 가리기 안내",
+          en: "SseukGarim home screen with a photo picker and guides to text, face, and manual tools",
+        },
+      },
+      {
+        src: {
+          ko: "/apps/sseukgarim/1.1.0/ko/02-text.webp",
+          en: "/apps/sseukgarim/1.1.0/en/02-text.webp",
+        },
+        alt: {
+          ko: "연락처 카드에서 인식한 글자 영역을 표시한 화면",
+          en: "Detected text regions highlighted on a sample contact card",
+        },
+      },
+      {
+        src: {
+          ko: "/apps/sseukgarim/1.1.0/ko/03-faces.webp",
+          en: "/apps/sseukgarim/1.1.0/en/03-faces.webp",
+        },
+        alt: {
+          ko: "사진에서 선택한 두 얼굴에 모자이크를 적용한 화면",
+          en: "Two selected faces pixelated in the photo editor",
+        },
+      },
+      {
+        src: {
+          ko: "/apps/sseukgarim/1.1.0/ko/04-export.webp",
+          en: "/apps/sseukgarim/1.1.0/en/04-export.webp",
+        },
+        alt: {
+          ko: "전화번호를 가린 결과 미리보기와 새 이미지 저장·공유 버튼",
+          en: "Preview of a covered phone number with buttons to save or share the new image",
+        },
+      },
     ],
     overview: {
-      ko: "쓱가림은 사진이나 스크린샷 한 장에서 가릴 부분을 골라 새 이미지로 저장·공유하는 iPhone 앱입니다. 이름이나 전화번호처럼 공유 전에 가려야 할 정보를 간단하게 정리해 보세요.\n\nApple Vision이 기기 안에서 한국어·영어·일본어·중국어 간체 글자 영역을 찾으면, 원하는 영역을 탭해 가림을 선택하거나 해제할 수 있습니다. 인식되지 않은 부분은 사각형을 직접 그리고, 확대·이동과 실행 취소로 결과를 확인합니다.\n\n가림은 완전히 불투명한 검은색으로 새 PNG에 합성됩니다. 원본 사진은 유지하고 원본의 위치정보·촬영정보 등 메타데이터는 새 이미지에 복사하지 않습니다. 서버, 회원가입, 광고, 외부 AI API 없이 기기 안에서 편집합니다.",
-      en: "SseukGarim lets you choose what to cover in a single photo or screenshot, then save or share a new image. Hide details such as a name or phone number before passing a picture along.\n\nApple Vision finds Korean, English, Japanese, and Simplified Chinese text regions on your device. Tap a region to select or deselect it, draw a rectangle over anything recognition missed, and check your work with zoom, pan, and undo.\n\nFully opaque black covers are flattened into a new PNG. Your original photo stays unchanged, and its location, camera, and other source metadata are not copied to the new image. Editing runs on your device without a server, account, ads, or external AI APIs. The app interface is available in Korean, English, Japanese, and Simplified Chinese.",
+      ko: "연락처가 담긴 스크린샷이나 여러 사람이 나온 사진을 공유할 때, 쓱가림에서 필요한 부분만 가려 보세요. 사진 한 장을 고르면 편집 화면에서 글자 선택, 얼굴 선택, 직접 가리기를 오갈 수 있어요.\n\nApple Vision이 iPhone에서 한국어·영어·일본어·중국어 간체 글자 영역과 얼굴을 찾아요. 가릴 글자를 탭하면 불투명한 검정으로 덮고, 얼굴은 하나씩 또는 모두 선택해 모자이크를 적용할 수 있어요. 놓친 영역은 사각형을 그려 검정이나 모자이크로 가려요.\n\n결과를 미리 본 뒤 새 PNG로 저장하거나 공유하세요. 원본 사진은 그대로 두고 새 이미지에는 원본의 위치·촬영 정보가 들어가지 않아요. 사진 인식과 편집은 회원가입이나 업로드 없이 기기 안에서 이루어져요.",
+      en: "Cover what you need before sharing a screenshot with contact details or a group photo. Pick one image and switch between text selection, face selection, and manual covers in the editor.\n\nApple Vision detects faces on your iPhone and recognizes text in Korean, English, Japanese, and Simplified Chinese. Tap text to cover it with solid black, or pixelate detected faces individually or all at once. Draw a rectangle to cover any area with solid black or a mosaic.\n\nPreview the result, then save or share it as a new PNG. The original stays intact, and the new image leaves out the original location and camera metadata. Detection and editing run on your device without an account or upload.",
     },
     forWhom: {
       ko: [
-        "이름·전화번호가 담긴 사진이나 스크린샷을 공유하기 전에 가리고 싶은 분",
-        "자동 인식과 직접 그리기를 함께 사용해 필요한 부분만 가리고 싶은 분",
-        "회원가입이나 광고 없이 사진 한 장을 간단히 편집하고 싶은 분",
+        "이름이나 전화번호를 가리고 스크린샷을 공유하고 싶은 분",
+        "모임 사진에서 공유하기 곤란한 얼굴을 모자이크로 가리고 싶은 분",
+        "자동 인식으로 찾은 영역과 직접 그린 영역을 한 사진에서 함께 가리고 싶은 분",
       ],
       en: [
-        "People who want to hide names or phone numbers before sharing a photo or screenshot",
-        "Anyone who wants both recognized text selection and manual rectangle covers",
-        "People who want a simple single-photo editor without accounts or ads",
+        "People who want to cover names or phone numbers before sharing screenshots",
+        "Anyone who wants to pixelate selected faces in group photos",
+        "People who want to combine detected areas and hand-drawn covers on one image",
       ],
     },
     features: {
       ko: [
-        "사진 또는 스크린샷 한 장 선택",
-        "기기 내 Apple Vision 한국어·영어·일본어·중국어 간체 글자 영역 인식",
-        "탭으로 가릴 글자 영역 선택·해제",
-        "인식되지 않은 부분을 직접 사각형으로 가리기",
-        "두 손가락 확대·이동과 실행 취소",
-        "불투명 검정 가림을 합성한 새 PNG 저장·공유",
+        "한국어·영어·일본어·중국어 간체 글자 영역을 찾아 탭으로 검정 가림",
+        "얼굴을 하나씩 또는 한꺼번에 선택해 모자이크 적용",
+        "직접 그린 사각형에 검정 또는 모자이크 적용",
+        "두 손가락 확대·이동과 실행 취소로 가림 범위 확인",
+        "결과 미리보기와 새 PNG 저장·공유",
         "원본 사진 유지, 원본 위치·촬영 메타데이터 제외",
         "서버·회원가입·광고·외부 AI API 없이 편집",
         "구독·앱 내 결제 없는 일회성 유료 다운로드",
       ],
       en: [
-        "Choose one photo or screenshot",
-        "On-device Korean, English, Japanese, and Simplified Chinese text recognition with Apple Vision",
-        "Tap text regions to select or deselect covers",
-        "Draw rectangles over areas recognition missed",
-        "Two-finger zoom and pan, plus undo",
-        "Save or share a new PNG with opaque black covers flattened in",
+        "Detect Korean, English, Japanese, and Simplified Chinese text and tap to cover it in black",
+        "Pixelate detected faces individually or all at once",
+        "Draw your own rectangles with solid black or mosaic covers",
+        "Check coverage with two-finger zoom and pan, plus undo",
+        "Preview, save, and share the result as a new PNG",
         "Keep the original photo and omit its location and camera metadata",
         "Edit without servers, accounts, ads, or external AI APIs",
         "A one-time paid download with no subscription or in-app purchases",
       ],
     },
     closing: {
-      ko: "자동 인식이 모든 개인정보를 찾아 주지는 않습니다. 글자가 아닌 정보나 놓친 부분은 직접 가리고, 내보내기 전에 사진 전체를 확대해 확인해 주세요. 편집 중인 작업은 앱을 종료하면 복구되지 않습니다.",
-      en: "Text recognition may miss private information. Manually cover non-text details and anything it missed, then inspect the whole image before exporting. An unfinished edit cannot be restored after the app closes.",
+      ko: "자동 인식이 놓친 글자나 얼굴은 직접 가리고, 공유 전에 결과 미리보기에서 가림 범위를 확인해 주세요. 확실히 덮어야 하는 정보는 불투명한 검정으로 가려 주세요.",
+      en: "Manually cover any text or faces detection missed, then check the preview before sharing. Use solid black for anything you need to cover completely.",
     },
     developer: "DamDam Studio",
     requires: { ko: "iPhone · iOS 17.0 이상", en: "iPhone · iOS 17.0 or later" },

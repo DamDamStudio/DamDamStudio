@@ -151,20 +151,29 @@ export default function AppDetailPage() {
                 {t("detail.screens")}
               </h2>
               <div className="no-scrollbar -mx-6 flex gap-4 overflow-x-auto px-6 pb-2">
-                {app.screenshots.map((src, i) => (
-                  <div
-                    key={src}
-                    className="shrink-0 overflow-hidden rounded-[28px] border border-line bg-cream shadow-sm"
-                  >
-                    <Image
-                      src={src}
-                      alt={`${app.name[lang]} screenshot ${i + 1}`}
-                      width={1080}
-                      height={2337}
-                      className="h-[420px] w-auto sm:h-[520px]"
-                    />
-                  </div>
-                ))}
+                {app.screenshots.map((screenshot, i) => {
+                  const localized = typeof screenshot !== "string";
+                  const src = localized ? screenshot.src[lang] : screenshot;
+                  const alt = localized
+                    ? screenshot.alt[lang]
+                    : `${app.name[lang]} screenshot ${i + 1}`;
+
+                  return (
+                    <div
+                      key={src}
+                      className="shrink-0 overflow-hidden rounded-[28px] border border-line bg-cream shadow-sm"
+                    >
+                      <Image
+                        src={src}
+                        alt={alt}
+                        width={localized ? 880 : 1080}
+                        height={localized ? 1912 : 2337}
+                        sizes={localized ? "(min-width: 640px) 240px, 194px" : undefined}
+                        className="h-[420px] w-auto sm:h-[520px]"
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>
